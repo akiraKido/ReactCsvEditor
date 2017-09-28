@@ -1,5 +1,4 @@
 import * as React from "react";
-import {CsvTable} from "./CsvTable";
 
 export interface CsvInputProps { onButtonDown: (csv:string) => void }
 interface CsvInputState { input:string }
