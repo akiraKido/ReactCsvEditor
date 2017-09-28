@@ -1,11 +1,19 @@
 import * as React from "react";
 import { CsvRowBase } from "./CsvRowBase";
-import { CsvHeaderCell } from "./CsvCells/CsvHeaderCell";
+import { CsvCellBase } from "./CsvCellBase";
 
 export class CsvHeader extends CsvRowBase {
 
-    getCell(content: string, key:number): JSX.Element {
+    makeCell(content: string, key:number): JSX.Element {
         return <CsvHeaderCell content={content} key={key} />
     }
 
+}
+
+export class CsvHeaderCell extends CsvCellBase {
+
+    getTag(content: JSX.Element): JSX.Element {
+        return <th>{content}</th>
+    }
+    
 }

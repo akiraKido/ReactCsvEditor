@@ -21,9 +21,9 @@ export abstract class CsvCellBase extends React.Component<CsvCellProps, undefine
     }
 
     render() {
-        return this.getCell(this.getHtml(this.props.content));
+        return this.getTag(this.getHtml(this.props.content));
     }
 
-    abstract getCell(content: JSX.Element): JSX.Element;
+    abstract getTag(content: JSX.Element): JSX.Element;
 
 }

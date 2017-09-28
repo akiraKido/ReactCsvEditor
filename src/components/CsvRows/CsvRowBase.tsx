@@ -10,12 +10,12 @@ export abstract class CsvRowBase extends React.Component<CsvRowProps, undefined>
         const separator = new CommaSeparator(this.props.row);
         let index = 0;
         separator.foreach(current => {
-            contents.push(this.getCell(current, index++));
+            contents.push(this.makeCell(current, index++));
         });
 
         return <tr>{contents}</tr>
     }
 
-    abstract getCell(content: string, key: number): JSX.Element;
+    abstract makeCell(content: string, key: number): JSX.Element;
 
 }
