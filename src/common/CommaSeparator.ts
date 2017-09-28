@@ -6,7 +6,7 @@ export class CommaSeparator extends IEnumerator<string> {
     private _index = 0;
 
     private get canMove():boolean {
-        while(/\s/.test(this._text.charAt(this._index))) {
+        while(/\s/.test(this.charAtIndex())) {
             // skip whitespace
             this._index++;
         }
@@ -24,6 +24,7 @@ export class CommaSeparator extends IEnumerator<string> {
     moveNext(): boolean {
         if(!this.canMove) return false;
         if(this.charAtIndex() == '"') {
+            // if escaped cell
             while(true) {
                 this._index++; // eat "
                 const start = this._index;
@@ -31,16 +32,18 @@ export class CommaSeparator extends IEnumerator<string> {
                     this._index++;
                 }
                 if(this.charAtIndex() != '"' && !this.canMove) {
+                    // if index is at end of input
                     this.current = this._text.substring(start, this._index);
                     this._index += 1; // eat "
                     return true;
                 }
                 if(this.charAtIndex(-1) != "\\") {
-                    // current will not include "
+                    // if " is not escaped
                     this.current = this._text.substring(start, this._index);
                     this._index += 2; // eat " and ,
                     return true;
                 }
+                this._index++; // eat \
             }
         } else {
             const start = this._index;

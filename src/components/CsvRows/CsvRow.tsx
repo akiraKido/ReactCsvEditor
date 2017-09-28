@@ -1,6 +1,6 @@
 import * as React from "react";
 import { CsvRowBase } from "./CsvRowBase";
-import { CsvCell } from "../CsvCells/CsvCell";
+import { CsvCell } from "./CsvCells/CsvCell";
 
 export class CsvRow extends CsvRowBase {
 
