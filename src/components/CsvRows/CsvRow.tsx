@@ -10,7 +10,7 @@ export class CsvRow extends CsvRowBase {
 
 }
 
-export class CsvCell extends CsvCellBase {
+class CsvCell extends CsvCellBase {
 
     getTag(content: JSX.Element): JSX.Element {
         return <td>{content}</td>

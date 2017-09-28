@@ -10,10 +10,10 @@ export class CsvHeader extends CsvRowBase {
 
 }
 
-export class CsvHeaderCell extends CsvCellBase {
+class CsvHeaderCell extends CsvCellBase {
 
     getTag(content: JSX.Element): JSX.Element {
         return <th>{content}</th>
     }
-    
+
 }
