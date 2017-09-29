@@ -1,6 +1,7 @@
 import * as React from "react";
 import { CsvInput } from "./CsvInput";
 import { CsvTable } from "./CsvTable";
+import { CsvOutput } from "./CsvOutput";
 
 interface CsvEditorState { csv: string; }
 
@@ -20,6 +21,7 @@ export class CsvEditor extends React.Component<undefined, CsvEditorState> {
             <div>
                 <CsvInput onButtonDown={this.onCsvButtonClick.bind(this)}/>
                 <CsvTable csv={this.state.csv}/>
+                <CsvOutput csv={this.state.csv}/>
             </div>
         );
     }
