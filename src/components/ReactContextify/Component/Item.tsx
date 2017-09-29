@@ -1,7 +1,7 @@
 import * as React from "react";
 import * as cx from "classnames";
 
-import {CssClasses} from "../cssClasses"
+import {CssClasses} from "../CssClasses"
 
 export interface ItemProps {
     children: React.ReactNode
