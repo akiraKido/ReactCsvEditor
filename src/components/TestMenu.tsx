@@ -3,7 +3,7 @@ import { ContextMenu } from "./ReactContextify/Component/ContextMenu";
 import { Item } from "./ReactContextify/Component/Item";
 import { IconFont } from "./ReactContextify/Component/IconFont";
 
-function onClick(targetNode: any, ref: any, data: any) {
+function onClick(targetNode: JSX.Element, ref: any, data: any) {
     console.log(targetNode);
     console.log(ref);
     console.log(data);

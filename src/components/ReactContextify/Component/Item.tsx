@@ -11,7 +11,7 @@ export interface ItemProps {
     rightIcon?: React.ReactNode;
     onClick?: (targetNode: object, refsFromProvider: object | object[], data:any ) => void;
     data?: any;
-    refsFromProvider?: object | object[];
+    refsFromProvider?: JSX.Element | JSX.Element[];
 }
 
 export class Item extends React.Component<ItemProps, undefined> {
@@ -26,7 +26,7 @@ export class Item extends React.Component<ItemProps, undefined> {
         refsFromProvider: []
     }
 
-    handleClick(e: MouseEvent) {
+    handleClick(e: UIEvent) {
         this.props.disabled
             ? e.stopPropagation
             : this.props.onClick(
