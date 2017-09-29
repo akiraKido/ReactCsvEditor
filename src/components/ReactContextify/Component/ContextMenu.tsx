@@ -2,18 +2,8 @@ import * as React from "react";
 import * as cx from "classnames";
 
 import {Item} from "./Item";
-import {CssClasses} from "../cssClasses";
+import {CssClasses} from "../CssClasses";
 import {EventManager} from "../util/EventManager"
-
-// static propTypes = {
-//     id: PropTypes.oneOfType([
-//       PropTypes.string,
-//       PropTypes.number
-//     ]).isRequired,
-//     children: childrenOfType(Item).isRequired,
-//     theme: PropTypes.string,
-//     animation: PropTypes.string
-//   };
 
 interface ContextMenuProps {
     id: string | number;
@@ -47,15 +37,8 @@ export class ContextMenu extends React.Component<ContextMenuProps, ContextMenuSt
     private refsFromProvider: string;
     private token: number;
 
-    constructor() {
-        super();
-
-        this.props = {
-            id: null,
-            children: null,
-            theme: null,
-            animation: null
-        }
+    constructor(props: ContextMenuProps) {
+        super(props);
 
         this.state = {
             x: 0,
@@ -67,6 +50,11 @@ export class ContextMenu extends React.Component<ContextMenuProps, ContextMenuSt
         this.menu = null;
         this.refsFromProvider = null;
         this.token = null;
+    }
+
+    public static defaultProps: Partial<ContextMenuProps> = {
+        theme: null,
+        animation: null
     }
 
     componentDidMount() {
@@ -95,6 +83,7 @@ export class ContextMenu extends React.Component<ContextMenuProps, ContextMenuSt
         window.removeEventListener("scroll", this.hide);
     }
 
+    // make div hide on click when mouse is not over menu
     onMouseEnter = () => window.removeEventListener("mousedown", this.hide);
     onMouseLeave = () => window.addEventListener("mousedown", this.hide);
 

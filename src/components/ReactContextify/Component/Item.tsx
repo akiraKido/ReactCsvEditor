@@ -16,18 +16,14 @@ export interface ItemProps {
 
 export class Item extends React.Component<ItemProps, undefined> {
 
-    constructor() {
-        super();
-        this.props = {
-            children: null,
-            leftIcon: "",
-            rightIcon: "",
-            disabled: false,
-            onClick: () => {},
-            targetNode: {},
-            data: null,
-            refsFromProvider: []
-        }
+    public static defaultProps: Partial<ItemProps> = {
+        leftIcon: "",
+        rightIcon: "",
+        disabled: false,
+        onClick: () => {},
+        targetNode: {},
+        data: null,
+        refsFromProvider: []
     }
 
     handleClick(e: MouseEvent) {

@@ -10,14 +10,11 @@ export interface IconFontProps {
 }
 
 export class IconFont extends React.Component<IconFontProps, undefined> {
-    constructor() {
-        super();
 
-        this.props = {
-            className: "",
-            style: {},
-            children: ""
-        }
+    public static defaultProps: IconFontProps = {
+        className: "",
+        style: {},
+        children: ""
     }
 
     render() {
